@@ -6,5 +6,5 @@ all: $(ALL)
 $(ALL): README.md
 	pandoc -V papersize:a5 $< -o $@
 
-README.md:
-	for e in images/*.jpg; do echo '![]('"$$e"')'; done > $@
+README.md: Makefile images/
+	for e in images/*.jpg; do echo '![]('"$$e"')'; echo; done > $@
