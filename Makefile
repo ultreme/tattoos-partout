@@ -3,8 +3,8 @@ ALL=book.docx book.epub book.pdf
 all: $(ALL)
 
 .PHONY: $(ALL)
-$(ALL): book.md
+$(ALL): README.md
 	pandoc -V papersize:a5 $< -o $@
 
-book.md:
-	for e in *.jpg; do echo '![]('"$$e"')'; done > book.md
+README.md:
+	for e in images/*.jpg; do echo '![]('"$$e"')'; done > $@
